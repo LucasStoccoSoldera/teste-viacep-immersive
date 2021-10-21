@@ -1,0 +1,43 @@
+body{
+background-color: #F2F4F6 !important;
+}
+
+label{
+    font-weight: bold;
+}
+
+th{
+    font-weight: bold;
+}
+
+
+.btn-success{
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle !important;
+    padding: .375rem 1.5rem !important;
+    border: none !important;
+}
+
+.form-check{
+    padding: 0 !important;
+}
+
+.form-check-input{
+    margin-left: 20px !important;
+}
+
+@media (min-width: 1200px){
+    .container {
+        max-width: 1920px !important;
+        width: 95% !important;
+    }
+}
+
+.card{
+    height: 100%;
+    padding: 15px 40px 15px 40px;
+    top: 15%;
+    background-color: white;
+    border-radius: 1rem !important;
+}
