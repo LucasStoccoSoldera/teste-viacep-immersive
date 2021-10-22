@@ -35,6 +35,10 @@
     @yield('content')
 </body>
 
+<script>
+        $('.cep').mask('00000-000');
+</script>
+
 @stack('js')
 
 </html>
