@@ -12,7 +12,7 @@ class Endereco extends Model
     public $table='enderecos';
 
     protected $fillable = [
-        'end_cep',
+        'id',
         'end_cidade',
         'end_rua',
     ];

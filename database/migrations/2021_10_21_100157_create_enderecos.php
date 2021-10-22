@@ -14,7 +14,7 @@ class CreateEnderecos extends Migration
     public function up()
     {
         Schema::create('enderecos', function (Blueprint $table) {
-            $table->id('end_cep');
+            $table->id();
             $table->string('end_cidade');
             $table->string('end_rua');
             $table->timestamps();
