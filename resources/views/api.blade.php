@@ -28,7 +28,7 @@
             @endisset
 
         </nav>
-
+ 
         <div class="row">
             <div class="container">
                 <div class="card" style="top:15%;">

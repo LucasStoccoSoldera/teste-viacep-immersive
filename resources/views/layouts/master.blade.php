@@ -31,7 +31,7 @@
 
 <body>
     @yield('content')
-
+ 
     <div class="modal fade" id="modalAlertDelete" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
             <form id="formExcluir" method="POST" autocomplete="off" enctype="multipart/form-data"
