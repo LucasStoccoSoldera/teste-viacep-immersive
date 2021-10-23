@@ -6,6 +6,8 @@ use App\Models\Endereco;
 
 class APIController extends Controller
 {
+    // Controller de regras de funcionamento API.
+    // JSON_UNESCAPED_UNICODE formata a mensagem para linguagem não unicode.
     public function processCEP($cep)
     {
         $cep = preg_replace("/[^0-9]/", "", $cep);

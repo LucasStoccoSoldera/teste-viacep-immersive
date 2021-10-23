@@ -9,7 +9,7 @@
                 <small class=" float-left">Listagem</small>
             </div>
 
-
+{{-- Mostra a div com erros --}}
             @if ($errors->all())
                 <div class="alert @if ($errors->all())alert-danger @endif float-right" role="alert">
 
@@ -21,6 +21,7 @@
                 </div>
             @endif
 
+{{-- Mostra a div com mensagem de sucesso --}}
             @isset($mensagem)
                 <div class="alert alert-success float-right" role="alert">
                     <li id="mensagem">{{ $mensagem }}</li>
@@ -28,7 +29,7 @@
             @endisset
 
         </nav>
- 
+
         <div class="row">
             <div class="container">
                 <div class="card" style="top:15%;">
@@ -141,7 +142,10 @@
 @endsection
 
 @push('js')
+    {{--Classe JS com todas as funções --}}
     <script src="../js/endereco.js"></script>
+
+    {{--Abre o modal de exclusão e define o id a ser excluído --}}
     <script>
         $('body').on('click', 'button.excluir', function() {
             var id = $(this).data('id');
@@ -149,6 +153,7 @@
             $("#modalAlertDelete").modal('toggle');
         });
 
+        // Realiza o envio do form de exclusão
         $("#formExcluir").on('submit', function(e) {
             e.preventDefault();
             var rota = $('#rotaDelete').val();

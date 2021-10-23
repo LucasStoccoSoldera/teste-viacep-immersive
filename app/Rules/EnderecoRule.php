@@ -17,7 +17,7 @@ class EnderecoRule implements Rule
     }
 
     /**
-     * Determine if the validation rule passes.
+     * Valida se o CEP existe no Via CEP.
      *
      * @param  string  $attribute
      * @param  mixed  $value

@@ -9,6 +9,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class EnderecoController extends Controller
 {
+    // Controller de endereços
     protected function create(EnderecoRequest $enderecoRequest)
     {
         $Endereco = new Endereco();

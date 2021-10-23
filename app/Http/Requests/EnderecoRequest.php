@@ -18,6 +18,7 @@ class EnderecoRequest extends FormRequest
         return true;
     }
 
+    // Remove os caracteres não alfa-numéricos antes de validar
     public function validationData()
     {
         $data = $this->all();
@@ -26,7 +27,7 @@ class EnderecoRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Realiza a validação de todos os pontos mencionados no projeto relativo aos forms
      *
      * @return array
      */
@@ -51,6 +52,7 @@ class EnderecoRequest extends FormRequest
         }
     }
 
+    // Retorna as tratativas de erro
     public function messages()
     {
         return [
