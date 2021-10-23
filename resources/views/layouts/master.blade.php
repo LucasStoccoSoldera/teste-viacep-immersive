@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -33,10 +31,46 @@
 
 <body>
     @yield('content')
+
+    <div class="modal fade" id="modalAlertDelete" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="formExcluir" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{route('delete.endereco')}}">
+                @csrf
+                @method('DELETE')
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h4 class="modal-title" style="color: white;">! Alerta de Exclusão !</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div style="text-align: center;">
+                                    <label class="modal-label" style="font-size: 18px; color:red; padding 0px;"> Deseja
+                                        realmente excluir esse registro?</label>
+                                    <input name="id" id="idDelete" type="hidden" class="input_01">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                        >Cancelar</button>
+                                    <button type="submit" class="btn btn-warning"
+                                    style="float: right;">Excluir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 
 <script>
-        $('.cep').mask('00000-000');
+    $('.cep').mask('00000-000');
+
+        $(document).ready(function() {
+            $('#retorno').hide();
+        });
+
 </script>
 
 @stack('js')
