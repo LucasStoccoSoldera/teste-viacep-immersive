@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\EnderecoRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +21,7 @@ class EnderecoRequest extends FormRequest
     public function validationData()
     {
         $data = $this->all();
-   $data['cep'] = preg_replace("/[^0-9]/", "", $data['cep']);
+        $data['cep'] = preg_replace("/[^0-9]/", "", $data['cep']);
         return $data;
     }
 
@@ -31,7 +32,6 @@ class EnderecoRequest extends FormRequest
      */
     public function rules(Request $request)
     {
-
         $input = [$request->cep];
 
         $request->merge(array_map(function ($item) {
@@ -46,7 +46,7 @@ class EnderecoRequest extends FormRequest
             ];
         } else if ($request->viacep_manual == 1) {
             return [
-                'cep' => ['required', 'unique:enderecos,id'],
+                'cep' => ['required', 'unique:enderecos,id', new EnderecoRule],
             ];
         }
     }
