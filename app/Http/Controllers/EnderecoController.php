@@ -29,7 +29,7 @@ class EnderecoController extends Controller
 
         $Endereco->save();
 
-        return view('init')->with(['mensagem' => 'Cadastro realizado com sucesso!']);
+        return redirect()->route('init')->with('mensagem', 'Cadastro realizado com sucesso!');
 
     }
 
@@ -54,7 +54,7 @@ class EnderecoController extends Controller
     {
         $data = Endereco::find($request->id);
         $data->delete();
-        return view('init')->with('mensagem', 'Exclusão realizada com sucesso');
+        return redirect()->route('init')->with('mensagem', 'Exclusão realizada com sucesso!');
 
     }
 }

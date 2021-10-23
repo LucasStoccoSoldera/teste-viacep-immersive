@@ -9,7 +9,7 @@
                 <small class=" float-left">Listagem</small>
             </div>
 
-{{-- Mostra a div com erros --}}
+            {{-- Mostra a div com erros --}}
             @if ($errors->all())
                 <div class="alert @if ($errors->all())alert-danger @endif float-right" role="alert">
 
@@ -21,12 +21,12 @@
                 </div>
             @endif
 
-{{-- Mostra a div com mensagem de sucesso --}}
-            @isset($mensagem)
+            {{-- Mostra a div com mensagem de sucesso --}}
+            @if (session('mensagem'))
                 <div class="alert alert-success float-right" role="alert">
-                    <li id="mensagem">{{ $mensagem }}</li>
+                    {{ session('mensagem') }}
                 </div>
-            @endisset
+            @endif
 
         </nav>
 
@@ -142,16 +142,15 @@
 @endsection
 
 @push('js')
-    {{--Classe JS com todas as funções --}}
+    {{-- Classe JS com todas as funções --}}
     <script src="../js/endereco.js"></script>
 
-    {{--Abre o modal de exclusão e define o id a ser excluído --}}
+    {{-- Abre o modal de exclusão e define o id a ser excluído --}}
     <script>
         $('body').on('click', 'button.excluir', function() {
             var id = $(this).data('id');
             $("#idDelete").val(id);
             $("#modalAlertDelete").modal('toggle');
         });
-
     </script>
 @endpush
