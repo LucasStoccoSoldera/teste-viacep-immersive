@@ -6,6 +6,6 @@ class InitController extends Controller
 {
     protected function init()
     {
-        return view('api', ['mensagem' => null]);
+        return view('api');
     }
 }

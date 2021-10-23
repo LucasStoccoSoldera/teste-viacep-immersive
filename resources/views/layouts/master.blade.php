@@ -34,7 +34,8 @@
 
     <div class="modal fade" id="modalAlertDelete" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
-            <form id="formExcluir" method="POST" autocomplete="off" enctype="multipart/form-data" action="{{route('delete.endereco')}}">
+            <form id="formExcluir" method="POST" autocomplete="off" enctype="multipart/form-data"
+                action="{{ route('delete.endereco') }}">
                 @csrf
                 @method('DELETE')
                 <div class="modal-content">
@@ -45,15 +46,15 @@
                         <div class="row">
                             <div class="col-12">
                                 <div style="text-align: center;">
-                                    <label class="modal-label" style="font-size: 18px; color:red; padding 0px;"> Deseja
+                                    <label class="modal-label" style="font-size: 18px; color:red; padding 0px;">
+                                        Deseja
                                         realmente excluir esse registro?</label>
                                     <input name="id" id="idDelete" type="hidden" class="input_01">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                        >Cancelar</button>
-                                    <button type="submit" class="btn btn-warning"
-                                    style="float: right;">Excluir</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-warning" style="float: right;">Excluir</button>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +68,9 @@
 <script>
     $('.cep').mask('00000-000');
 
-        $(document).ready(function() {
-            $('#retorno').hide();
-        });
-
+    $(document).ready(function() {
+        $('#retorno').hide();
+    });
 </script>
 
 @stack('js')
