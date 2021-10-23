@@ -6,6 +6,7 @@ use App\Http\Requests\EnderecoRequest;
 use App\Models\Endereco;
 use Symfony\Component\HttpFoundation\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Redirect;
 
 class EnderecoController extends Controller
 {
@@ -28,7 +29,7 @@ class EnderecoController extends Controller
 
         $Endereco->save();
 
-        return view('api')->with(['mensagem' => 'Cadastro realizado com sucesso!']);
+        return view('init')->with(['mensagem' => 'Cadastro realizado com sucesso!']);
 
     }
 
@@ -53,7 +54,7 @@ class EnderecoController extends Controller
     {
         $data = Endereco::find($request->id);
         $data->delete();
-        return view('api')->with('mensagem', 'Exclusão realizada com sucesso');
+        return view('init')->with('mensagem', 'Exclusão realizada com sucesso');
 
     }
 }
