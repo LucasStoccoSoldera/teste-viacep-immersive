@@ -10,7 +10,6 @@ th{
     font-weight: bold;
 }
 
-
 .btn-success{
     margin-left: auto;
     margin-right: auto;
@@ -37,7 +36,60 @@ th{
 .card{
     height: 100%;
     padding: 15px 40px 15px 40px;
-    top: 15%;
     background-color: white;
     border-radius: 1rem !important;
+}
+
+.modal-footer{
+    justify-content: space-between !important;
+}
+
+.text-right{
+    padding-right:0px !important;
+}
+
+.dataTables_info{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    color: green;
+    font-weight: bold;
+    font-size: 16px;
+    }
+
+.paginate_button{
+    margin-top: 10px;
+    width: 15%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color:#fff;
+    background: green ;
+    background-image: none;
+    margin-bottom: 0px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 20px 0px 20px 20px ;
+}
+
+.current{
+    background: var(--yellow);
+    margin-top: 5px;
+    color: #000;
+}
+
+.next{
+    font-size: 16px;
+    font-weight: bold;
+    color:#fff;
+    float: right;
+    border-radius: 20px 20px 20px 20px;
+
+}
+
+.previous{
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    float: left;
+    margin-right: 15px;
+    border-radius: 20px 20px 20px 20px;
 }
