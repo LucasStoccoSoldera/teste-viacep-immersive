@@ -53,7 +53,7 @@ class EnderecoController extends Controller
     {
         $data = Endereco::find($request->id);
         $data->delete();
-        return view('init')->with('mensagem', 'Exclusão realizada com sucesso');
+        return view('api')->with('mensagem', 'Exclusão realizada com sucesso');
 
     }
 }
