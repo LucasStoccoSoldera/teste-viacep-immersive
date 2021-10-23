@@ -1,3 +1,4 @@
+// Realiza o manuseio dos campo em relação ao radio
 function hideCidadeRua() {
     if ($("#viacep_manual1").prop("checked")) {
         $('#fg-cidade').hide();
@@ -12,17 +13,7 @@ function hideCidadeRua() {
     }
 }
 
-function alerta(texto) {
-    $mensagem = texto;
-    $('#mensagem').val(texto);
-}
-
-$(document).on('click', '[data-dismiss="modal"]',
-    function () {
-        table_endereco.ajax.reload(null, false);
-    }
-);
-
+// Gera a tabela
 var table_endereco = $('#tb_endereco').DataTable({
     paging: true,
     ordering: true,

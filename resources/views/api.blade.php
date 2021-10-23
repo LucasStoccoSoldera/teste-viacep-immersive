@@ -153,25 +153,5 @@
             $("#modalAlertDelete").modal('toggle');
         });
 
-        // Realiza o envio do form de exclusão
-        $("#formExcluir").on('submit', function(e) {
-            e.preventDefault();
-            var rota = $('#rotaDelete').val();
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'DELETE',
-                url: rota,
-                data: $(this).serialize(),
-                processData: false,
-                dataType: 'json',
-                success: function(data_decoded) {
-                    $('#formExcluir')[0].reset();
-                    $('#modalAlertDelete').hide();
-                    alerta('Endereço excluído com êxito!');
-                }
-            });
-        });
     </script>
 @endpush
