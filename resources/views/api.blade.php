@@ -8,57 +8,72 @@
                 <label style="margin:0px;">Endereços</label><br>
                 <small class=" float-left">Listagem</small>
             </div>
+
+
+            @if ($mensagem || $errors->all())
+            <div class="alert @if($mensagem && $mensagem <> null)alert-success @endif @if($errors->all())alert-danger @endif float-right" role="alert">
+                @if ($mensagem)
+                <li id="mensagem">{{$mensagem}}</li>
+                @endif
+
+            @if($errors->all())
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+          @endforeach
+          @endif
+        </div>
+        @endif
         </nav>
 
         <div class="row">
             <div class="container">
-                <div class="card">
+                <div class="card" style="top:15%;">
                     <div class="row" style="margin-bottom: 25px;">
                         <div class="col col-lg-2">
+                            <form id="formRegisterEndereco" method="POST" action="{{ route('create.endereco') }}">
+                                @csrf
                             <div class="form-check">
-                                <label class="form-check-label" for="viacep_manual1">
+                                <label class="form-check-label" for="viacep_manual">
                                     Via CEP
                                 </label>
-                                <input class="form-check-input" type="radio" onclick="hideCidadeRua();" name="viacep_manual" id="viacep_manual1"/>
+                                <input class="form-check-input" type="radio" onclick="hideCidadeRua();" name="viacep_manual" id="viacep_manual1" value="1"/>
                             </div>
                         </div>
                         <div class="col col-lg-2">
                             <div class="form-check">
-                                <label class="form-check-label" for="viacep_manual2">
+                                <label class="form-check-label" for="viacep_manual">
                                     Manual
                                 </label>
-                                <input class="form-check-input" type="radio" onclick="hideCidadeRua();" name="viacep_manual" id="viacep_manual2"
+                                <input class="form-check-input" type="radio" onclick="hideCidadeRua();" name="viacep_manual" id="viacep_manual2" value="2"
                                     checked/>
                             </div>
                         </div>
                     </div>
-                    <form id="formRegisterEndereco" method="POST" action="{{ route('create.endereco') }}">
-                        @csrf
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="cep">CEP</label>
-                                    <input type="text" class="form-control cep" id="cep" aria-describedby="cepHelp"
+                                    <input type="text" class="form-control cep" name="cep" id="cep" aria-describedby="cepHelp"
                                         placeholder="Insira o CEP">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group" id="fg-cidade">
                                     <label for="cidade">Cidade</label>
-                                    <input type="text" class="form-control" id="cidade" aria-describedby="cidadeHelp"
+                                    <input type="text" class="form-control"name="cidade"  id="cidade" aria-describedby="cidadeHelp"
                                         placeholder="Insira a Cidade">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group"id="fg-rua">
                                     <label for="rua">Rua</label>
-                                    <input type="text" class="form-control" id="rua" aria-describedby="ruaHelp"
-                                        placeholder="Insira a Rua">
+                                    <input type="text" class="form-control" name="rua" id="rua" aria-describedby="ruaHelp"
+                                        placeholder="Insira a Rua"/>
                                 </div>
                             </div>
                             <div class="col col-lg-2 align-items-center">
                                 <button type="submit" class="btn btn-success float-right center"
-                                    style="margin-top: 32px">Cadastrar</button>
+                                    style="margin-top: 32px;">Cadastrar</button>
                             </div>
                         </div>
                     </form>
@@ -68,7 +83,7 @@
     </div>
     <div class="row" style="margin-top: 25px;">
         <div class="container">
-            <div class="card">
+            <div class="card" style="top:5%;">
                 <div class="table-responsive">
                     <table class="table tablesorter " id="tb_endereco">
                         <thead>
@@ -98,4 +113,32 @@
 
 @push('js')
 <script src="../js/endereco.js"></script>
+<script>
+
+$('body').on('click', 'button.excluir', function() {
+    var id = $(this).data('id');
+    $("#idDelete").val(id);
+        $("#modalAlertDelete").modal('toggle');
+});
+
+$("#formExcluir").on('submit', function(e) {
+e.preventDefault();
+var rota = $('#rotaDelete').val();
+$.ajax({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: 'DELETE',
+    url: rota,
+    data: $(this).serialize(),
+    processData: false,
+    dataType: 'json',
+    success: function(data_decoded) {
+            $('#formExcluir')[0].reset();
+            $('#modalAlertDelete').hide();
+            alerta('Endereço excluído com êxito!');
+    }
+});
+});
+</script>
 @endpush

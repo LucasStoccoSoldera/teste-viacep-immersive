@@ -1,8 +1,8 @@
-function  hideCidadeRua(){
+function hideCidadeRua() {
     if ($("#viacep_manual1").prop("checked")) {
         $('#fg-cidade').hide();
         $('#fg-rua').hide();
-        $('#cidade').attr('disabled','true');
+        $('#cidade').attr('disabled', 'true');
         $('#rua').attr('disabled', 'true');
     } else {
         $('#fg-cidade').show();
@@ -12,15 +12,26 @@ function  hideCidadeRua(){
     }
 }
 
+function alerta(texto) {
+    $mensagem = texto;
+    $('#mensagem').val(texto);
+}
+
+$(document).on('click', '[data-dismiss="modal"]',
+    function () {
+        table_endereco.ajax.reload(null, false);
+    }
+);
+
 var table_endereco = $('#tb_endereco').DataTable({
     paging: true,
     ordering: true,
     searching: false,
     processing: true,
     serverside: true,
-    ajax: "{{ route('list.endereco') }}",
+    ajax: "/list_endereco/",
     columns: [{
-            data: "end_cep"
+            data: "id"
         },
         {
             data: "end_cidade"
@@ -29,7 +40,8 @@ var table_endereco = $('#tb_endereco').DataTable({
             data: "end_rua"
         },
         {
-            data: "action"
+            data: "action",
+            className: "text-right"
         },
     ]
 });
