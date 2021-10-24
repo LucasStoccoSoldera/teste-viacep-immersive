@@ -24,4 +24,4 @@ As funcionalidades do projeto desenvolvidas são:
 - [x] Inserção de DataTable capaz de cumprir com o modelo de tabela, paginação por itens, e ordenação das colunas.
 - [x] Deleção dos registros clicando em botão na tabela, inserido como complementar a confirmação da exclusão.
 - [x] Tarefas adicionais cumpridas.
-- [x] Direcionamento por endpoint GET, validando as regras e retornando os Jsons corretamente.
+- [x] Direcionamento por endpoint GET /cep/{cep}, validando as regras e retornando os Jsons corretamente.
