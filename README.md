@@ -10,7 +10,7 @@
 
 <img src="public\img\projeto_viacep.png" alt="API ViaCEP">
 
-> Aplcação simples para consumir o Web Service ViaCEP e funcionar também como uma API.
+> Aplicação simples para consumir o Web Service ViaCEP e funcionar também como uma API.
 
 ## **Projeto**
 As funcionalidades do projeto desenvolvidas são:
